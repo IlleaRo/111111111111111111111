@@ -19,23 +19,23 @@ public class StartFragment extends Fragment {
     }
 
     public String text;
-    MainActivity mActivity = new MainActivity();
+    //MainActivity mActivity = new MainActivity();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_start, container, false);
         TextView textOnS = view.findViewById(R.id.textOnNewScreen);
-        Button button = (Button) view.findViewById(R.id.contButton);
-        button.setOnClickListener(new ActionForContinue());
+      //  Button button = (Button) view.findViewById(R.id.contButton);
+    //    button.setOnClickListener(new ActionForContinue());
 
         return view;
     }
 
-    private class ActionForContinue implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            mActivity.Clack(v);
-        }
-    }
+    //private class ActionForContinue implements View.OnClickListener {
+      //  @Override
+        //public void onClick(View v) {
+         //   mActivity.Clack(v);
+        //}
+//    }
 }
