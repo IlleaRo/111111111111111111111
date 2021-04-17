@@ -21,9 +21,7 @@ public class MainActivity extends FragmentActivity {
     private final f5 f5 = new f5();
     private final f6 f6 = new f6();
     private final StartFragment fstart = new StartFragment();
-    //QQ
-    //++++++++++++++++++++++++++++++++++++++++++ПРОВЕРОЧКА
-    //SharedPreferences
+    // WE ALL USTALI
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_COUNTER = "counter";
     private SharedPreferences mSettings;
