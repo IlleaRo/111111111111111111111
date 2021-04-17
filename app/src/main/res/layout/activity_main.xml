@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/global_container">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="13">
+
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Hello"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_weight="12.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Button"
+            android:onClick="Clack"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:text="Button"
+            android:onClick="Clack"/>
+    </FrameLayout>
+</LinearLayout>
