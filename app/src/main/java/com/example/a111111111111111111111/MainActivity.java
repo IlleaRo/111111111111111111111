@@ -32,6 +32,11 @@ public class MainActivity extends FragmentActivity {
     public Integer checkCounter;
     final static String TAG_1 = "FRAGMENT_1";
     Button mButton1, mButton2;
+
+    public Integer getmCounter() {
+        return mCounter;
+    }
+
     @Override
 
 
