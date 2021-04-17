@@ -4,8 +4,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,7 @@ import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES_CO
 public class StartFragment extends Fragment {
 
     public String text;
-    MainActivity mActivity;
+
 
 
     @Override
@@ -25,15 +27,20 @@ public class StartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_start, container, false);
         TextView textOnS = view.findViewById(R.id.textOnNewScreen);
+
         Button button = (Button) view.findViewById(R.id.contButton);
         button.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-
+                FragmentActivity activity = getActivity();
+                if (activity != null && activity instanceof MainActivity){
+                    ((MainActivity) activity).Clack(v);
+                }
             }
         });
         return view;
     }
 }
+
