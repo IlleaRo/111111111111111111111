@@ -9,7 +9,6 @@ import android.graphics.Matrix;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +18,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
     private CharacterSprite characterSprite;
     public FenceSprite fence1, fence2, fence3;
-    public TextView countOut = findViewById(R.id.counter);
     public static int gapHeight = 500;
-    int counter = -3;
     public static int velocity = 10;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
@@ -60,7 +57,8 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event)
+    {
         characterSprite.y = characterSprite.y - (characterSprite.yVelocity * 10);
         return super.onTouchEvent(event);
     }
@@ -79,7 +77,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
 
     private void makeLevel() {
         characterSprite = new CharacterSprite
-                (getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.polish_dancing_cow_dancing), 300, 240));
+                (getResizedBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.polish_dancing_cow_dancing), 300, 240));
         Bitmap bmp;
         Bitmap bmp2;
         int y;
@@ -87,7 +85,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
         bmp = getResizedBitmap(BitmapFactory.decodeResource
                 (getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
         bmp2 = getResizedBitmap
-            (BitmapFactory.decodeResource(getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
+                (BitmapFactory.decodeResource(getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
 
         fence1 = new FenceSprite(bmp, bmp2, 2000, 100);
         fence2 = new FenceSprite(bmp, bmp2, 4500, 100);
@@ -103,7 +101,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
                 thread.setRunning(false);
                 thread.join();
 
-            } catch (InterruptedException e) {
+            } catch(InterruptedException e){
                 e.printStackTrace();
             }
             retry = false;
@@ -119,10 +117,11 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas)
+    {
 
         super.draw(canvas);
-        if (canvas != null) {
+        if(canvas!=null) {
             canvas.drawRGB(0, 100, 205);
             characterSprite.draw(canvas);
             fence1.draw(canvas);
@@ -131,15 +130,9 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
 
         }
     }
+
     public void logic() {
-
-        if (counter >= 0){
-            //countOut.setText(counter);
-            countOut.setVisibility(VISIBLE);
-        }
-        if (counter == 5){
-
-        }
+        int counter = 0;
         List<FenceSprite> pipes = new ArrayList<>();
         pipes.add(fence1);
         pipes.add(fence2);
@@ -158,10 +151,12 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
                 Random r = new Random();
                 int value1 = r.nextInt(500);
                 int value2 = r.nextInt(500);
-                pipes.get(i).xX = screenWidth + value1 + 2000;
+                pipes.get(i).xX = screenWidth + value1 + 2500;
                 pipes.get(i).yY = value2 - 250;
                 counter++;
-                i = 0;
+                if (counter >= 5){
+                    
+                }
             }
         }
 
@@ -181,7 +176,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
         fence2.yY = 200;
         fence3.xX = 3200;
         fence3.yY = 250;
-        counter = -3;
 
     }
+
 }

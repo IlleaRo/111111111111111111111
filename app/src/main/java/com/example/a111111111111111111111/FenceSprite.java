@@ -9,6 +9,7 @@ public class FenceSprite {
 
     private Bitmap image;
     private Bitmap image2;
+    private int xVelocity = 10;
     public int xX, yY;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 

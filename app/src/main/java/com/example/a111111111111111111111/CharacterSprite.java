@@ -10,7 +10,7 @@ public class CharacterSprite {
     private Bitmap image;
     public int x, y;
     private int xVelocity = 10;
-    public int yVelocity = 5;
+    public int yVelocity = 10;
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
