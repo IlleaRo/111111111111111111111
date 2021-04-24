@@ -1,11 +1,14 @@
 package com.example.a111111111111111111111;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.nfc.Tag;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -20,6 +23,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     public FenceSprite fence1, fence2, fence3;
     public static int gapHeight = 500;
     public static int velocity = 10;
+    public int counter = 0;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
 
@@ -132,7 +136,6 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void logic() {
-        int counter = 0;
         List<FenceSprite> pipes = new ArrayList<>();
         pipes.add(fence1);
         pipes.add(fence2);
@@ -154,8 +157,11 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
                 pipes.get(i).xX = screenWidth + value1 + 2500;
                 pipes.get(i).yY = value2 - 250;
                 counter++;
+                Log.d("НУЖНЫЙ","Counter: ="+ counter);
                 if (counter >= 5){
-                    
+                    Context context = getContext();
+                    Intent intent = new Intent(context, MainActivity.class); //а не new Intent(this, MyActivity.class)
+                    context.startActivity(intent);
                 }
             }
         }
@@ -176,6 +182,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
         fence2.yY = 200;
         fence3.xX = 3200;
         fence3.yY = 250;
+        counter = 0;
 
     }
 
