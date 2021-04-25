@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:text="Button"
-            android:onClick="Clack"/>
+            android:onClick="clickStart"/>
 
         <Button
             android:id="@+id/button2"

@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +26,7 @@ public class MainActivity extends FragmentActivity {
     //GGGGGGGGGGGGGGGGGGGGGGGGGAAAAAAAAAAAAAAAAP
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_COUNTER = "counter";
-    private SharedPreferences mSettings;
+    public SharedPreferences mSettings;
 
 
     private Integer mCounter = 1;
@@ -56,7 +57,8 @@ public class MainActivity extends FragmentActivity {
                 .replace(R.id.container, fstart)
                 .commit();
 
-        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        mSettings = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
+        Log.d("PREF","Я создаюсь");
     }
 
 
@@ -117,8 +119,12 @@ public class MainActivity extends FragmentActivity {
                 mCounter=7;
                 break;
             case 7:
-                setContentView(new CowSimple (this));
-                mCounter=8;
+                SharedPreferences.Editor editor = mSettings.edit();
+                editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
+                editor.apply();
+
+                Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
+                setContentView(new CowSimple(this));
             default:
                 mCounter=1;
         }
@@ -127,10 +133,10 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (mSettings.contains(APP_PREFERENCES_COUNTER)) {
+        if (mSettings.contains(APP_PREFERENCES_COUNTER)) { Log.d("PREF","Я проснулся");
             // Получаем число из настроек
             mCounter = mSettings.getInt(APP_PREFERENCES_COUNTER, 0);
-            Log.d("НУЖНЫЙ УРОВЕНЬ", String.valueOf(mSettings.getInt(APP_PREFERENCES_COUNTER, 0)));
+            Log.d("PREF", String.valueOf("Нужный уровень"+mSettings.getInt(APP_PREFERENCES_COUNTER, 0)));
             mMtext.setText(mCounter.toString());
             checkCounter = mCounter;
             // Выводим на экран данные из настроек
@@ -146,7 +152,10 @@ public class MainActivity extends FragmentActivity {
         super.onPause();
         // Запоминаем данные
         SharedPreferences.Editor editor = mSettings.edit();
-        editor.putInt(APP_PREFERENCES_COUNTER, mCounter-1);
+        editor.putInt("counter", mCounter-1);
         editor.apply();
+        Log.d("PREF","я на паузе ");
     }
+
+
 }

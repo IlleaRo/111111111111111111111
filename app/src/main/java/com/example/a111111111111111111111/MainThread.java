@@ -14,11 +14,9 @@ public class MainThread extends Thread {
 
     public MainThread(SurfaceHolder surfaceHolder, CowSimple gameView) {
 
-
         super();
         this.surfaceHolder = surfaceHolder;
         this.birdSimple = gameView;
-
 
     }
 

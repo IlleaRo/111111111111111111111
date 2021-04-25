@@ -2,6 +2,7 @@ package com.example.a111111111111111111111;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,10 +13,14 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES;
+import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES_COUNTER;
 
 public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
@@ -26,22 +31,22 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
     public int counter = 0;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-
+    private int mCs;
+    SharedPreferences m1Settings;
     public CowSimple(Context context) {
         super(context);
-
         getHolder().addCallback(this);
-
+        m1Settings = getContext().getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
+        mCs = m1Settings.getInt(APP_PREFERENCES_COUNTER,0);
+        Log.d("PREF", String.valueOf(mCs));
         thread = new MainThread(getHolder(), this);
-
         setFocusable(true);
-
     }
-
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
     }
+
 
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
@@ -70,13 +75,9 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
         makeLevel();
-
-
         thread.setRunning(true);
         thread.start();
-
     }
 
     private void makeLevel() {
@@ -99,6 +100,9 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+        SharedPreferences.Editor editor = m1Settings.edit();
+        editor.putInt(APP_PREFERENCES_COUNTER, 7);
+        editor.apply();
         boolean retry = true;
         while (retry) {
             try {
@@ -158,7 +162,7 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
                 pipes.get(i).yY = value2 - 250;
                 counter++;
                 Log.d("НУЖНЫЙ","Counter: ="+ counter);
-                if (counter >= 5){
+                if (counter >= 2){
                     Context context = getContext();
                     Intent intent = new Intent(context, MainActivity.class); //а не new Intent(this, MyActivity.class)
                     context.startActivity(intent);
