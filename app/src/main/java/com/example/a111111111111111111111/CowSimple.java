@@ -114,6 +114,9 @@ public class CowSimple extends SurfaceView implements SurfaceHolder.Callback {
             }
             retry = false;
         }
+        Context context = getContext();
+        Intent intent = new Intent(context, MainActivity.class); //а не new Intent(this, MyActivity.class)
+        context.startActivity(intent);
     }
 
     public void update() {
