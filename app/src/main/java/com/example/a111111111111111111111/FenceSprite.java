@@ -9,8 +9,8 @@ public class FenceSprite {
 
     private Bitmap image;
     private Bitmap image2;
-    private int xVelocity = 10;
-    public int xX, yY;
+
+    public int X, Y;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
 
@@ -19,22 +19,19 @@ public class FenceSprite {
     public FenceSprite (Bitmap bmp, Bitmap bmp2, int x, int y) {
         image = bmp;
         image2 = bmp2;
-        yY = y;
-        xX = x;
+        Y = y;
+        X = x;
     }
 
 
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(image, xX, -(CowSimple.gapHeight / 2) + yY, null);
-        canvas.drawBitmap(image2,xX, ((screenHeight / 2) + (CowSimple.gapHeight / 2)) + yY, null);
+        canvas.drawBitmap(image, X, -(Cow.gapHeight / 2) + Y, null);
+        canvas.drawBitmap(image2, X, ((screenHeight / 2) + (Cow.gapHeight / 2)) + Y, null);
 
 
     }
     public void update() {
-
-        xX -= CowSimple.velocity;
-
-
+        X -= Cow.speed;
 
     }
 

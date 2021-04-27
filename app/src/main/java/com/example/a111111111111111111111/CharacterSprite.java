@@ -1,21 +1,12 @@
 package com.example.a111111111111111111111;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
 public class CharacterSprite {
-
-
     private Bitmap image;
     public int x, y;
-    private int xVelocity = 10;
-    public int yVelocity = 10;
-    private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-    private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
-
-
-
+    public int speed = 10;
 
     public CharacterSprite (Bitmap bmp) {
         image = bmp;
@@ -23,19 +14,11 @@ public class CharacterSprite {
         y = 100;
     }
 
-
     public void draw(Canvas canvas) {
         canvas.drawBitmap(image, x, y, null);
-
-
     }
+
     public void update() {
-
-        y += yVelocity;
-
-
-
+        y += speed;
     }
-
-
 }

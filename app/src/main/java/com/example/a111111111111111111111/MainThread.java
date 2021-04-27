@@ -4,19 +4,18 @@ import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
 public class MainThread extends Thread {
-    private CowSimple birdSimple;
-    private SurfaceHolder surfaceHolder;
+    private Cow Cow;
+    private final SurfaceHolder surfaceHolder;
     private boolean running;
     public static Canvas canvas;
     private int targetFPS = 30;
-    private double averageFPS;
 
 
-    public MainThread(SurfaceHolder surfaceHolder, CowSimple gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, com.example.a111111111111111111111.Cow gameView) {
 
         super();
         this.surfaceHolder = surfaceHolder;
-        this.birdSimple = gameView;
+        this.Cow = gameView;
 
     }
 
@@ -27,8 +26,6 @@ public class MainThread extends Thread {
         long startTime;
         long timeMillis;
         long waitTime;
-        long totalTime = 0;
-        int frameCount =0;
         long targetTime = 1000/targetFPS;
 
 
@@ -39,8 +36,8 @@ public class MainThread extends Thread {
             try {
                 canvas = this.surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    this.birdSimple.update();
-                    this.birdSimple.draw(canvas);
+                    this.Cow.update();
+                    this.Cow.draw(canvas);
                 }
             } catch (Exception e) {
             }
@@ -60,16 +57,6 @@ public class MainThread extends Thread {
             try{
                 this.sleep(waitTime);
             }catch(Exception e){}
-
-            totalTime += System.nanoTime()-startTime;
-            frameCount++;
-            if(frameCount == targetFPS)
-            {
-                averageFPS = 1000/((totalTime/frameCount)/1000000);
-                frameCount =0;
-                totalTime = 0;
-                System.out.println(averageFPS);
-            }
         }
 
     }

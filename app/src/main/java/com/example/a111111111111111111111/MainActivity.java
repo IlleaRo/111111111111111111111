@@ -4,7 +4,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -124,7 +123,7 @@ public class MainActivity extends FragmentActivity {
                 editor.apply();
 
                 Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
-                setContentView(new CowSimple(this));
+                setContentView(new Cow(this));
             default:
                 mCounter=1;
         }
