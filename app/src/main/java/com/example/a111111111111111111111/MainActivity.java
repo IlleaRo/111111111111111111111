@@ -123,7 +123,7 @@ public class MainActivity extends FragmentActivity {
                 editor.apply();
 
                 Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
-                setContentView(new Cow(this));
+                setContentView(new Rocket(this));
             default:
                 mCounter=1;
         }

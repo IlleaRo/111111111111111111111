@@ -79,14 +79,9 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     private void makeLevel() {
-        characterSprite = new CharacterSprite
-                (getResizedBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.polish_dancing_cow_dancing), 300, 240));
-        Bitmap bmp;
-        Bitmap bmp2;
-        bmp = getResizedBitmap(BitmapFactory.decodeResource
-                (getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
-        bmp2 = getResizedBitmap
-                (BitmapFactory.decodeResource(getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
+        characterSprite = new CharacterSprite (getResizedBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.polish_dancing_cow_dancing), 300, 240));
+        Bitmap bmp = getResizedBitmap (BitmapFactory.decodeResource(getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
+        Bitmap bmp2 = getResizedBitmap (BitmapFactory.decodeResource(getResources(), R.drawable.fence), 500, Resources.getSystem().getDisplayMetrics().heightPixels / 2);
 
         fence1 = new FenceSprite(bmp, bmp2, 2000, 100);
         fence2 = new FenceSprite(bmp, bmp2, 4500, 100);
