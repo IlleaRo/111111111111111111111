@@ -21,8 +21,6 @@ public class MainActivity extends FragmentActivity {
     private final f5 f5 = new f5();
     private final f6 f6 = new f6();
     private final StartFragment fstart = new StartFragment();
-    // WE ALL USTALI
-    //GGGGGGGGGGGGGGGGGGGGGGGGGAAAAAAAAAAAAAAAAP
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_COUNTER = "counter";
     public SharedPreferences mSettings;
@@ -31,7 +29,7 @@ public class MainActivity extends FragmentActivity {
     private Integer mCounter = 1;
     public Integer checkCounter;
     final static String TAG_1 = "FRAGMENT_1";
-    Button mButton1, mButton2;
+   // Button mButton1, mButton2;
 
     public Integer getmCounter() {
         return mCounter;
@@ -43,13 +41,13 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton1 = findViewById(R.id.button);
-        mButton2 = findViewById(R.id.button2);
+       // mButton1 = findViewById(R.id.button);
+       // mButton2 = findViewById(R.id.button2);
         mMtext = findViewById(R.id.mainText);
-        //mButton1.setVisibility(View.INVISIBLE);
-        //mButton2.setVisibility(View.INVISIBLE);
-        mButton1.setText("Начать");
-        mButton2.setText("Продолжить");
+       // mButton1.setVisibility(View.INVISIBLE);
+       // mButton2.setVisibility(View.INVISIBLE);
+       // mButton1.setText("Начать");
+       // mButton2.setText("Продолжить");
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -60,47 +58,49 @@ public class MainActivity extends FragmentActivity {
         Log.d("PREF","Я создаюсь");
     }
 
+    public void StartGame(View v){
+        Clack(v,mCounter);
+    }
+
 
     @SuppressLint("SetTextI18n")
-    public void Clack(View view) {
+    public void Clack(View view, Integer needLevel) {
         if (isFirst) {
-            mButton2.setVisibility(View.VISIBLE);
+           // mButton2.setVisibility(View.VISIBLE);
             isFirst = false;
         }
-
-        mMtext.setText("Вы на уровне " +mCounter.toString());
+        mMtext.setText("Вы на уровне " +needLevel.toString());
         Log.d("НУЖНЫЙ УРОВЕНЬ", String.valueOf(mSettings.getInt(APP_PREFERENCES_COUNTER, 0)));
-
-        switch (mCounter){
-
-
+        mCounter = needLevel;
+        switch (needLevel){
             case 1:
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f1)
                     .commit();
-                mCounter=2;
+               // mButton2.setVisibility(View.INVISIBLE);
+               // mButton1.setText("Я готов!!!");
                 break;
             case 2:
+               // mButton2.setVisibility(View.VISIBLE);
+               // mButton1.setText("Украсть ключ");
+               // mButton2.setText("Ждать");
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f2)
                     .commit();
-                mCounter=3;
                 break;
             case 3:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, f3)
                         .commit();
-                mCounter=4;
                 break;
             case 4:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, f4)
                         .commit();
-                mCounter=5;
                 break;
 
             case 5:
@@ -108,14 +108,12 @@ public class MainActivity extends FragmentActivity {
                         .beginTransaction()
                         .replace(R.id.container, f5)
                         .commit();
-                mCounter=6;
                 break;
             case 6:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, f6)
                         .commit();
-                mCounter=7;
                 break;
             case 7:
                 SharedPreferences.Editor editor = mSettings.edit();
@@ -128,6 +126,8 @@ public class MainActivity extends FragmentActivity {
                 mCounter=1;
         }
     }
+
+
 
     @Override
     protected void onResume() {
@@ -151,7 +151,7 @@ public class MainActivity extends FragmentActivity {
         super.onPause();
         // Запоминаем данные
         SharedPreferences.Editor editor = mSettings.edit();
-        editor.putInt("counter", mCounter-1);
+        editor.putInt("counter", mCounter);
         editor.apply();
         Log.d("PREF","я на паузе ");
     }

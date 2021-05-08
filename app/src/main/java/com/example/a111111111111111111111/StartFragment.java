@@ -36,7 +36,7 @@ public class StartFragment extends Fragment {
             {
                 FragmentActivity activity = getActivity();
                 if (activity != null && activity instanceof MainActivity){
-                    ((MainActivity) activity).Clack(v);
+                    ((MainActivity) activity).StartGame(v);
                 }
             }
         });

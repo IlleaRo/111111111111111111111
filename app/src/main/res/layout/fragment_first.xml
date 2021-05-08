@@ -3,13 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".f1">
+    tools:context=".f1"
+    android:orientation="vertical">
+<FrameLayout
+    android:layout_weight="3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".f1"
+    android:orientation="vertical">
 
-    <TextView
+    <ImageView
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:src="@drawable/polish_dancing_cow_dancing"/>
+    <ImageView
+        android:scaleType="centerCrop"
+        android:alpha="0.6"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/blacktheme"/>
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/f1text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:gravity="left"
+        android:isScrollContainer="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
         android:text="First Fragment"
-        android:textSize="48dp"/>
-
+        android:textSize="24sp" />
+</FrameLayout>
+    <Button
+        android:id="@+id/f1button"
+        android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center"
+    android:text="Я помогу"/>
 </LinearLayout>
