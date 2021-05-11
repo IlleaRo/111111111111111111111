@@ -18,7 +18,6 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
         private ThirdThread thread;
         private RocketSprite rocketSprite;
         public MeteorSprite meteor1, meteor2;
-        public static int gapHeight = 500;
         public static int speed = 10;
         public int counter = 0;
         private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
@@ -60,7 +59,7 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
 
     private void makeLevel(){
         rocketSprite = new RocketSprite(getResizedBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.rocket), 300, 450));
-        Bitmap bmp = getResizedBitmap(BitmapFactory.decodeResource (getResources(), R.drawable.meteor), 500, 450);
+        Bitmap bmp = getResizedBitmap(BitmapFactory.decodeResource (getResources(), R.drawable.meteor), 150, 150);
         meteor1 = new MeteorSprite(bmp, bmp, 150, 1000);
         meteor2 = new MeteorSprite(bmp, bmp, 150, 100);
     }

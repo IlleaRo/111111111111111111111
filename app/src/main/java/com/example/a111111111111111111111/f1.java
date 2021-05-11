@@ -19,15 +19,6 @@ import static android.text.style.TtsSpan.ARG_TEXT;
 
 public class f1 extends Fragment {
 
-
-
-    public static f1 newInstande(String text){
-        f1 fragment = new f1();
-        Bundle args = new Bundle();
-        args.putString(ARG_TEXT,text);
-        fragment.setArguments(args);
-        return fragment;
-    }
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +29,7 @@ public class f1 extends Fragment {
         mText.setText("\tПриветствую!\n" +
                 "Это история о одинокой корове по имени Коу. Тебе придется почувствовать себя жителем этого тяжелого мира. \n" +
                 "Изначально Коу жила на тропическом острове. Она ела банановые листья и пила кокосовое молоко. Но однажды, приплыли русские на атомном ледоколе и разрушили остров, они схватили нашу героиню и отправили ее в ссылку в Сибирь в Новосибирск.\n" +
-                "Коу приходиться жить на ферме в Криводановке. Как всем известно, здесь нет ни банановых листьев, ни кокосового молока. Это расстраивает коровку, и она планирует побег. \n" +
+                "Коу приходится жить на ферме в Криводановке. Как всем известно, здесь нет ни банановых листьев, ни кокосового молока. Это расстраивает коровку, и она планирует побег. \n" +
                 "Сможете ли вы помочь Коу сбежать?");
         Button button = (Button) view.findViewById(R.id.f1button);
         button.setOnClickListener(new View.OnClickListener()
@@ -48,7 +39,7 @@ public class f1 extends Fragment {
             {
                 FragmentActivity activity = getActivity();
                 if (activity != null && activity instanceof MainActivity){
-                    ((MainActivity) activity).Clack(v,4);
+                    ((MainActivity) activity).Clack(v,2);
                 }
             }
         });

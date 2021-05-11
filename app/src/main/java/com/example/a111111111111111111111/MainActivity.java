@@ -74,10 +74,12 @@ public class MainActivity extends FragmentActivity {
         mCounter = needLevel;
         switch (needLevel){
             case 1:
+                /*
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f1)
-                    .commit();
+                    .commit(); */
+                setContentView(new Rocket(this));
                // mButton2.setVisibility(View.INVISIBLE);
                // mButton1.setText("Я готов!!!");
                 break;
@@ -89,6 +91,7 @@ public class MainActivity extends FragmentActivity {
                     .beginTransaction()
                     .replace(R.id.container, f2)
                     .commit();
+
                 break;
             case 3:
                 getSupportFragmentManager()
