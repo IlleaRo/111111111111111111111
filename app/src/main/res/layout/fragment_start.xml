@@ -7,8 +7,6 @@
     tools:context=".StartFragment"
     android:orientation="vertical"
     android:id="@+id/startFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textOnNewScreen"
         android:layout_width="match_parent"
@@ -31,8 +29,12 @@
         android:contentDescription="TODO">
 
     </ImageView>
+
     <Button
+        android:textColor="@color/text"
+        android:textSize="23dp"
         android:id="@+id/contButton"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Продолжить"

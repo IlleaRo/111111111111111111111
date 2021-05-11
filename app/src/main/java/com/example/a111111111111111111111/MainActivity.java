@@ -14,12 +14,21 @@ import android.widget.TextView;
 public class MainActivity extends FragmentActivity {
     private boolean isFirst = true;
     private TextView mMtext;
+
+
+
     private final f2 f2 = new f2();
     private final f1 f1 = new f1();
     private final f3 f3 = new f3();
     private final f4 f4 = new f4();
     private final f5 f5 = new f5();
     private final f6 f6 = new f6();
+    private final f7 f7 = new f7();
+    private final f8 f8 = new f8();
+    private final f9 f9 = new f9();
+
+
+
     private final StartFragment fstart = new StartFragment();
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_COUNTER = "counter";
@@ -74,14 +83,12 @@ public class MainActivity extends FragmentActivity {
         mCounter = needLevel;
         switch (needLevel){
             case 1:
-                /*
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f1)
-                    .commit(); */
-                setContentView(new Rocket(this));
-               // mButton2.setVisibility(View.INVISIBLE);
-               // mButton1.setText("Я готов!!!");
+                    .commit();
+                //mButton2.setVisibility(View.INVISIBLE);
+                //mButton1.setText("Я готов!!!");
                 break;
             case 2:
                // mButton2.setVisibility(View.VISIBLE);
@@ -119,12 +126,29 @@ public class MainActivity extends FragmentActivity {
                         .commit();
                 break;
             case 7:
-                SharedPreferences.Editor editor = mSettings.edit();
-                editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
-                editor.apply();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f7)
+                        .commit();
+                break;
+            case 8:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f8)
+                        .commit();
+                break;
+            case 9:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f9)
+                        .commit();
+                break;
+               // SharedPreferences.Editor editor = mSettings.edit();
+                //editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
+                //editor.apply();
 
-                Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
-                setContentView(new Rocket(this));
+               // Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
+               // setContentView(new Rocket(this));
             default:
                 mCounter=1;
         }

@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".f3">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context=".f3"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Третий фрагмент"
-        android:gravity="center"
-        android:textSize="48dp"/>
+        android:layout_height="0dp"
+        tools:context=".f3"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/polish_dancing_cow_dancing" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:alpha="0.3"/>
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/f3text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left"
+            android:isScrollContainer="true"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            android:text="First Fragment"
+            android:textSize="24sp" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/f31button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:layout_margin="2dp"
+            android:text="Выманить" />
+
+        <Button
+            android:id="@+id/f32button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="2dp"
+            android:gravity="center"
+            android:text="Пробраться" />
+    </LinearLayout>
+</LinearLayout>
