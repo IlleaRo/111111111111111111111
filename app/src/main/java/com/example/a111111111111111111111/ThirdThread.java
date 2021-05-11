@@ -9,6 +9,8 @@ public class ThirdThread extends Thread {
     private boolean running;
     public static Canvas canvas2;
     private int targetFPS = 30;
+    private int counterLeft = 0;
+    private int counterRight = 0;
 
 
     public ThirdThread(SurfaceHolder surfaceHolder, com.example.a111111111111111111111.Rocket gameView) {
@@ -38,6 +40,7 @@ public class ThirdThread extends Thread {
                 synchronized (surfaceHolder) {
                     this.Rocket.update();
                     this.Rocket.draw(canvas2);
+
                 }
             } catch (Exception e) {
             }
@@ -55,6 +58,20 @@ public class ThirdThread extends Thread {
             waitTime = targetTime-timeMillis;
 
             try{
+                if (Rocket.leftIsBlocked){
+                    counterLeft++;
+                    if (counterLeft >= 450){
+                        Rocket.leftIsBlocked = false;
+                        counterLeft = 0;
+                    }
+                }
+                if (Rocket.rightIsBlocked){
+                    counterRight++;
+                    if (counterRight >= 450){
+                        Rocket.rightIsBlocked = false;
+                        counterRight = 0;
+                    }
+                }
                 this.sleep(waitTime);
             }catch(Exception e){}
         }
