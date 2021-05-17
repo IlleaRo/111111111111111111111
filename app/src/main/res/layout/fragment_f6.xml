@@ -48,7 +48,7 @@
             android:layout_gravity="center"
             android:layout_weight="2"
             android:layout_margin="2dp"
-            android:text="Украсть" />
+            android:text="Перегрызть провода" />
 
         <Button
             android:id="@+id/f62button"
@@ -57,6 +57,6 @@
             android:layout_weight="2"
             android:layout_margin="2dp"
             android:gravity="center"
-            android:text="Ждать" />
+            android:text="Пробраться, пока Захар спит" />
     </LinearLayout>
 </LinearLayout>
