@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {

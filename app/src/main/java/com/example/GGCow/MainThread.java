@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
@@ -11,7 +11,7 @@ public class MainThread extends Thread {
     private int targetFPS = 30;
 
 
-    public MainThread(SurfaceHolder surfaceHolder, com.example.a111111111111111111111.Cow gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, com.example.GGCow.Cow gameView) {
 
         super();
         this.surfaceHolder = surfaceHolder;

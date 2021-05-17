@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,19 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-public class f7 extends Fragment {
+public class f3 extends Fragment {
 
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_f7, container, false);
-        TextView mText = view.findViewById(R.id.f7text);
+        View view = inflater.inflate(R.layout.fragment_f3, container, false);
+
+
+        TextView mText = view.findViewById(R.id.f3text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Известно, что Захар играет только в рейтинг… Что можно сделать, чтобы его выманить?\n"
+        mText.setText("Захар сидит в своем доме и редко посещает коров, но ключ-то находится в ДОМЕ. Попробовать выманить Захара или пробраться к нему ночью?. \n"
         );
-        Button button1 = (Button) view.findViewById(R.id.f71button);
+        Button button1 = (Button) view.findViewById(R.id.f31button);
         button1.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -32,11 +33,11 @@ public class f7 extends Fragment {
             {
                 FragmentActivity activity = getActivity();
                 if (activity instanceof MainActivity){
-                    ((MainActivity) activity).Clack(v,11);
+                    ((MainActivity) activity).Clack(v,5);
                 }
             }
         });
-        Button button2 = (Button) view.findViewById(R.id.f72button);
+        Button button2 = (Button) view.findViewById(R.id.f32button);
         button2.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -44,7 +45,7 @@ public class f7 extends Fragment {
             {
                 FragmentActivity activity = getActivity();
                 if (activity instanceof MainActivity){
-                    ((MainActivity) activity).Clack(v,8);
+                    ((MainActivity) activity).Clack(v,6);
                 }
             }
         });

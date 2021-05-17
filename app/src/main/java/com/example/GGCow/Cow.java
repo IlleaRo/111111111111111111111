@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES;
-import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES_COUNTER;
+import static com.example.GGCow.MainActivity.APP_PREFERENCES;
+import static com.example.GGCow.MainActivity.APP_PREFERENCES_COUNTER;
 
 public class Cow extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
