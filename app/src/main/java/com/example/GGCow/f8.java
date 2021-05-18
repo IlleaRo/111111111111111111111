@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

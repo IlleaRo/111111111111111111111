@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
@@ -13,7 +13,7 @@ public class ThirdThread extends Thread {
     private int counterRight = 0;
 
 
-    public ThirdThread(SurfaceHolder surfaceHolder, com.example.a111111111111111111111.Rocket gameView) {
+    public ThirdThread(SurfaceHolder surfaceHolder, com.example.GGCow.Rocket gameView) {
 
         super();
         this.surfaceHolder = surfaceHolder;

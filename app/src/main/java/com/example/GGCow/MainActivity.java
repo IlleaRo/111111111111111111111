@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -8,13 +8,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
     private boolean isFirst = true;
     private TextView mMtext;
-
+    private View tView;
 
 
     private final f2 f2 = new f2();
@@ -26,10 +25,12 @@ public class MainActivity extends FragmentActivity {
     private final f7 f7 = new f7();
     private final f8 f8 = new f8();
     private final f9 f9 = new f9();
-
-
-
+    private final f10 f10 = new f10();
+    private final f11 f11 = new f11();
+    private final f12 f12 = new f12();
+    private final f13 f13 = new f13();
     private final StartFragment fstart = new StartFragment();
+
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_COUNTER = "counter";
     public SharedPreferences mSettings;
@@ -58,6 +59,7 @@ public class MainActivity extends FragmentActivity {
        // mButton1.setText("Начать");
        // mButton2.setText("Продолжить");
 
+        tView = getLayoutInflater().inflate(R.layout.activity_main,null, false);
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, fstart)
@@ -65,6 +67,10 @@ public class MainActivity extends FragmentActivity {
 
         mSettings = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
         Log.d("PREF","Я создаюсь");
+        Log.d("PREF",mCounter.toString());
+      //  if (APP_PREFERENCES_COUNTER=="15"){
+        //    Clack(tView,15);
+        //}
     }
 
     public void StartGame(View v){
@@ -145,14 +151,44 @@ public class MainActivity extends FragmentActivity {
                         .replace(R.id.container, f9)
                         .commit();
                 break;
-               // SharedPreferences.Editor editor = mSettings.edit();
-                //editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
-                //editor.apply();
-
-               // Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
-               // setContentView(new Rocket(this));
+            case 10:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f10)
+                        .commit();
+                break;
+            case 11:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f11)
+                        .commit();
+                break;
+            case 12:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f12)
+                        .commit();
+                break;
+            case 13:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f13)
+                        .commit();
+                break;
+            case 14:
+                SharedPreferences.Editor editor = mSettings.edit();
+               editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
+               editor.apply();
+               Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
+               setContentView(new Cow(this));
             default:
                 mCounter=1;
+            case 15:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f13)
+                        .commit();
+                break;
         }
     }
 

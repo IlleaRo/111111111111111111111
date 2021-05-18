@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".f9"
+    tools:context=".f13"
     android:orientation="vertical">
     <FrameLayout
         android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".f9"
+        tools:context=".f13"
         android:orientation="vertical">
 
         <ImageView
@@ -25,7 +25,7 @@
             android:alpha="0.3" />
         <TextView
             android:textColor="@color/white"
-            android:id="@+id/f9text"
+            android:id="@+id/f13text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
@@ -42,21 +42,12 @@
         android:layout_margin="1dp"
         android:orientation="horizontal" >
         <Button
-            android:id="@+id/f91button"
+            android:id="@+id/f131button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="2"
             android:layout_margin="2dp"
-            android:text="Arturito, ¡ayúdame!" />
-
-        <Button
-            android:id="@+id/f92button"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_margin="2dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="Самостоятельно" />
+            android:text="Вперёд!!!" />
     </LinearLayout>
 </LinearLayout>

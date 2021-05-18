@@ -1,4 +1,4 @@
-package com.example.a111111111111111111111;
+package com.example.GGCow;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES;
-import static com.example.a111111111111111111111.MainActivity.APP_PREFERENCES_COUNTER;
+import static com.example.GGCow.MainActivity.APP_PREFERENCES;
+import static com.example.GGCow.MainActivity.APP_PREFERENCES_COUNTER;
 
 public class Cow extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
@@ -92,7 +92,7 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         SharedPreferences.Editor editor = m1Settings.edit();
-        editor.putInt(APP_PREFERENCES_COUNTER, 7);
+        editor.putInt(APP_PREFERENCES_COUNTER, 14);
         editor.apply();
         boolean retry = true;
         while (retry) {
@@ -156,7 +156,13 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
                 counter++;
                 Log.d("НУЖНЫЙ","Counter: ="+ counter);
                 if (counter >= 2){
+<<<<<<< HEAD:app/src/main/java/com/example/a111111111111111111111/Cow.java
 
+=======
+                    //SharedPreferences.Editor editor = m1Settings.edit();
+                    //editor.putInt(APP_PREFERENCES_COUNTER, 15);
+                  //  editor.apply();
+>>>>>>> 2f511088c57d667dc589754647f4a677798e1dd2:app/src/main/java/com/example/GGCow/Cow.java
                     Context context = getContext();
                     Intent intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
