@@ -13,7 +13,7 @@ public class MeteorSprite {
 
 
 
-    public MeteorSprite (Bitmap bmp, Bitmap bmp2, int x, int y) {
+    public MeteorSprite (Bitmap bmp, int x, int y) {
         image = bmp;
         Y = y;
         X = x;

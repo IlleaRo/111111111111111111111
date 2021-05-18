@@ -94,10 +94,12 @@ public class MainActivity extends FragmentActivity {
                // mButton2.setVisibility(View.VISIBLE);
                // mButton1.setText("Украсть ключ");
                // mButton2.setText("Ждать");
+                /*
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f2)
-                    .commit();
+                    .commit(); */
+                setContentView(new Rocket(this));
 
                 break;
             case 3:

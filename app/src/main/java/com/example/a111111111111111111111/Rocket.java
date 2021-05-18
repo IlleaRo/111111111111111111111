@@ -9,6 +9,7 @@ import android.graphics.Matrix;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,8 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
         public boolean rightIsBlocked = false;
         private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
         private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+        public Bitmap space = getResizedBitmap(BitmapFactory.decodeResource (getResources(), R.drawable.space), screenWidth, screenHeight);
+
 
     public Rocket(Context context) {
         super(context);
@@ -59,19 +62,23 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
         thread.start();
     }
 
+
+
+
+
     private void makeLevel(){
         rocketSprite = new RocketSprite(getResizedBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.rocket), 100, 250));
         Bitmap bmp = getResizedBitmap(BitmapFactory.decodeResource (getResources(), R.drawable.meteor), 150, 150);
-        meteor1 = new MeteorSprite(bmp, bmp, 350, 100);
-        meteor2 = new MeteorSprite(bmp, bmp, 250, -100 );
-        meteor3 = new MeteorSprite(bmp, bmp, 150, -500);
-        meteor4 = new MeteorSprite(bmp, bmp, 200, -1000);
-        meteor5 = new MeteorSprite(bmp, bmp, 400, -1250);
-        meteor6 = new MeteorSprite(bmp, bmp, 500, -1500);
-        meteor7 = new MeteorSprite(bmp, bmp, 50, -1600);
-        meteor8 = new MeteorSprite(bmp, bmp, 350, -1800);
-        meteor9 = new MeteorSprite(bmp, bmp, 250, -1900 );
-        meteor10 = new MeteorSprite(bmp, bmp, 150, -2500);
+        meteor1 = new MeteorSprite(bmp, 350, 100);
+        meteor2 = new MeteorSprite(bmp, 250, -100 );
+        meteor3 = new MeteorSprite(bmp, 150, -500);
+        meteor4 = new MeteorSprite(bmp, 200, -1000);
+        meteor5 = new MeteorSprite(bmp, 400, -1250);
+        meteor6 = new MeteorSprite(bmp, 500, -1500);
+        meteor7 = new MeteorSprite(bmp, 50, -1600);
+        meteor8 = new MeteorSprite(bmp, 350, -1800);
+        meteor9 = new MeteorSprite(bmp, 250, -1900 );
+        meteor10 = new MeteorSprite(bmp,150, -2500);
     }
 
     @Override
@@ -91,7 +98,6 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
 
     public void update(){
         logic();
-        //rocketSprite.update();
         meteor1.update();
         meteor2.update();
         meteor3.update();
@@ -150,17 +156,16 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
                 int value2 = r.nextInt(screenWidth);
                 meteors.get(i).Y = -value1;
                 meteors.get(i).X = 30 + value2;
-
+                counter++;
             }
         }
     }
-
     @Override
     public void draw(Canvas canvas2)
     {
         super.draw(canvas2);
         if(canvas2!=null) {
-            canvas2.drawRGB(150, 0, 0);
+            canvas2.drawBitmap(space, 0, 0, null);
             rocketSprite.draw(canvas2);
             meteor1.draw(canvas2);
             meteor2.draw(canvas2);

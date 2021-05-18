@@ -156,6 +156,7 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
                 counter++;
                 Log.d("НУЖНЫЙ","Counter: ="+ counter);
                 if (counter >= 2){
+
                     Context context = getContext();
                     Intent intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
