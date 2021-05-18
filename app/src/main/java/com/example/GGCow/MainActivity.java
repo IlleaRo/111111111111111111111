@@ -29,6 +29,7 @@ public class MainActivity extends FragmentActivity {
     private final f11 f11 = new f11();
     private final f12 f12 = new f12();
     private final f13 f13 = new f13();
+    private final f15 f15 = new f15();
     private final StartFragment fstart = new StartFragment();
 
     public static final String APP_PREFERENCES = "mysettings";
@@ -181,14 +182,15 @@ public class MainActivity extends FragmentActivity {
                editor.apply();
                Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
                setContentView(new Cow(this));
-            default:
-                mCounter=1;
+               break;
             case 15:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, f13)
+                        .replace(R.id.container, f15)
                         .commit();
                 break;
+            default:
+                mCounter=1;
         }
     }
 
