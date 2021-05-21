@@ -14,7 +14,6 @@ public class MainActivity extends FragmentActivity {
     private TextView mMtext;
     private View tView;
 
-
     private final f2 f2 = new f2();
     private final f1 f1 = new f1();
     private final f3 f3 = new f3();
@@ -29,6 +28,7 @@ public class MainActivity extends FragmentActivity {
     private final f12 f12 = new f12();
     private final f13 f13 = new f13();
     private final f15 f15 = new f15();
+
     private final StartFragment fstart = new StartFragment();
 
     public static final String APP_PREFERENCES = "mysettings";
@@ -40,7 +40,6 @@ public class MainActivity extends FragmentActivity {
     private Integer trueCounter = 0;
     public Integer checkCounter;
     final static String TAG_1 = "FRAGMENT_1";
-   // Button mButton1, mButton2;
 
     public Integer getmCounter() {
         return mCounter;
@@ -52,14 +51,7 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // mButton1 = findViewById(R.id.button);
-       // mButton2 = findViewById(R.id.button2);
         mMtext = findViewById(R.id.mainText);
-       // mButton1.setVisibility(View.INVISIBLE);
-       // mButton2.setVisibility(View.INVISIBLE);
-       // mButton1.setText("Начать");
-       // mButton2.setText("Продолжить");
-
         tView = getLayoutInflater().inflate(R.layout.activity_main,null, false);
         getSupportFragmentManager()
                 .beginTransaction()
@@ -70,10 +62,10 @@ public class MainActivity extends FragmentActivity {
         mCounter = mSettings.getInt(APP_PREFERENCES_COUNTER,0);
         Log.d("PREF","COUNTER = "+APP_PREFERENCES_COUNTER);
         Log.d("PREF","Я создаюсь");
+        if (mCounter==15){
+            Clack(tView,15);
+        }
         Log.d("PREF",mCounter.toString());
-      //  if (APP_PREFERENCES_COUNTER=="15"){
-        //    Clack(tView,15);
-        //}
     }
 
     public void StartGame(View v){
@@ -86,26 +78,20 @@ public class MainActivity extends FragmentActivity {
         mMtext.setText("Вы на уровне " +needLevel.toString());
         Log.d("НУЖНЫЙ УРОВЕНЬ", String.valueOf(mSettings.getInt(APP_PREFERENCES_COUNTER, 0)));
         mCounter = needLevel;
-        switch (needLevel){
+        if (mCounter==0){mCounter=1;}
+        switch (mCounter){
             case 1:
+                mMtext.setText("Вы на уровне " +1);
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f1)
                     .commit();
-                //mButton2.setVisibility(View.INVISIBLE);
-                //mButton1.setText("Я готов!!!");
                 break;
             case 2:
-               // mButton2.setVisibility(View.VISIBLE);
-               // mButton1.setText("Украсть ключ");
-               // mButton2.setText("Ждать");
-
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f2)
                     .commit();
-             //   setContentView(new Rocket(this));
-
                 break;
             case 3:
                 getSupportFragmentManager()
