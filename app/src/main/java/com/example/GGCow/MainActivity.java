@@ -28,6 +28,8 @@ public class MainActivity extends FragmentActivity {
     private final f12 f12 = new f12();
     private final f13 f13 = new f13();
     private final f15 f15 = new f15();
+    private final f16 f16 = new f16();
+    private final f17 f17 = new f17();
 
     private final StartFragment fstart = new StartFragment();
 
@@ -172,6 +174,25 @@ public class MainActivity extends FragmentActivity {
                         .beginTransaction()
                         .replace(R.id.container, f15)
                         .commit();
+                break;
+            case 16:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f16)
+                        .commit();
+                break;
+            case 17:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f17)
+                        .commit();
+                break;
+            case 18:
+                SharedPreferences.Editor editor1 = mSettings.edit();
+                editor1.putInt(APP_PREFERENCES_COUNTER, mCounter);
+                editor1.apply();
+                Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
+                setContentView(new Rocket(this));
                 break;
             default:
                 mCounter=1;
