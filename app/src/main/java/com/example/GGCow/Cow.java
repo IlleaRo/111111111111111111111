@@ -98,6 +98,7 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
         resetLevel();
     }
 
+
     public void update() {
         logic();
         characterSprite.update();

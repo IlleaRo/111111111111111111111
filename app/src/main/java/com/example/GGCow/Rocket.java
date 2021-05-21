@@ -90,7 +90,9 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     @Override
-    public void surfaceDestroyed(SurfaceHolder holder) { }
+    public void surfaceDestroyed(SurfaceHolder holder) {
+        resetLevel();
+    }
 
     public void update(){
         logic();
