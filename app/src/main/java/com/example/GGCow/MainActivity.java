@@ -30,6 +30,7 @@ public class MainActivity extends FragmentActivity {
     private final f15 f15 = new f15();
     private final f16 f16 = new f16();
     private final f17 f17 = new f17();
+    private final f19 f19 = new f19();
 
     private final StartFragment fstart = new StartFragment();
 
@@ -193,6 +194,12 @@ public class MainActivity extends FragmentActivity {
                 editor1.apply();
                 Log.d("PREF", String.valueOf(getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)));
                 setContentView(new Rocket(this));
+                break;
+            case 19:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, f19)
+                        .commit();
                 break;
             default:
                 mCounter=1;
