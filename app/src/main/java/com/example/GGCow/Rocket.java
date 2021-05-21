@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -64,10 +65,13 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         makeLevel();
+        Log.d("SUR", "make");
         if(firsttime) {
             thread.setRunning(true);
             thread.start();
+            Log.d("SUR", "start");
         }
+        firsttime = false;
     }
 
 
@@ -148,22 +152,23 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
 
 
 
-            if (meteors.get(i).Y + 150 > screenHeight+200){
+            if (meteors.get(i).Y + 150 > screenHeight+200) {
                 Random r = new Random();
                 int value1 = r.nextInt(500);
                 int value2 = r.nextInt(screenWidth);
                 meteors.get(i).Y = -value1;
                 meteors.get(i).X = 30 + value2;
                 counter++;
-            }
-            SharedPreferences.Editor editor = m1Settings.edit();
-            if(counter >= 20){
 
-                editor.putInt(APP_PREFERENCES_COUNTER, 19);
-                editor.apply();
-                Context context = getContext();
-                Intent intent = new Intent(context, MainActivity.class);
-                context.startActivity(intent);
+                SharedPreferences.Editor editor = m1Settings.edit();
+                if (counter >= 20) {
+
+                    editor.putInt(APP_PREFERENCES_COUNTER, 19);
+                    editor.apply();
+                    Context context = getContext();
+                    Intent intent = new Intent(context, MainActivity.class);
+                    context.startActivity(intent);
+                }
             }
         }
     }
