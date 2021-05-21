@@ -94,21 +94,21 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
         Log.d("PREF","COW is die"+counter);
         SharedPreferences.Editor editor = m1Settings.edit();
         if (counter==2) {
-            editor.putInt(APP_PREFERENCES_COUNTER, 14);
+            editor.putInt(APP_PREFERENCES_COUNTER, 15);
         }
-        else editor.putInt(APP_PREFERENCES_COUNTER,13);
+        else editor.putInt(APP_PREFERENCES_COUNTER,14);
         editor.apply();
         Context context = getContext();
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
         boolean retry = true;
-        while (retry) {
-            try {
+         while (retry) {
+             try {
                 thread.setRunning(false);
                 thread.join();
-            } catch(InterruptedException e){
+             } catch(InterruptedException e){
                 e.printStackTrace();
-            }
+             }
             retry = false;
         }
     }

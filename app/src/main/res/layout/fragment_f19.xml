@@ -1,32 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".f9"
+    tools:context=".f19"
     android:orientation="vertical">
     <FrameLayout
         android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".f9"
+        tools:context=".f19"
         android:orientation="vertical">
 
         <ImageView
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:scaleType="center"
-            android:src="@drawable/arturito" />
-
-        <LinearLayout
+            android:src="@drawable/moon"
+            android:scaleType="centerInside"/>
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:alpha="0.3" />
+            android:alpha="0.6"/>
         <TextView
             android:textColor="@color/white"
-            android:id="@+id/f9text"
+            android:id="@+id/f19text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
@@ -34,34 +32,14 @@
             android:isScrollContainer="true"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
-            android:text="First Fragment"
             android:textSize="24sp" />
     </FrameLayout>
-
-    <LinearLayout
+    <Button
+        android:background="@color/green"
+        android:id="@+id/f19button"
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="1dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#101315"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/f91button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="2dp"
-            android:layout_weight="2"
-            android:text="Arturito, ¡ayúdame!" />
-
-        <Button
-            android:id="@+id/f92button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="Самостоятельно" />
-    </LinearLayout>
+        android:layout_gravity="bottom|center"
+        android:text="Такой себе конец..."/>
 </LinearLayout>
