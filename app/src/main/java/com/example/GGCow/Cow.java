@@ -94,24 +94,23 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
         Log.d("PREF","COW is die"+counter);
         SharedPreferences.Editor editor = m1Settings.edit();
         if (counter==2) {
-            editor.putInt(APP_PREFERENCES_COUNTER, 15);
+            editor.putInt(APP_PREFERENCES_COUNTER, 14);
         }
-        else editor.putInt(APP_PREFERENCES_COUNTER,14);
+        else editor.putInt(APP_PREFERENCES_COUNTER,13);
         editor.apply();
+        Context context = getContext();
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
         boolean retry = true;
         while (retry) {
             try {
                 thread.setRunning(false);
                 thread.join();
-
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
             retry = false;
         }
-        Context context = getContext();
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
     }
 
     public void update() {
@@ -174,6 +173,7 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
         if (characterSprite.y > screenHeight) {
             resetLevel(); }
     }
+
 
 
     public void resetLevel() {
