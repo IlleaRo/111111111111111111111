@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
-    private boolean isFirst = true;
     private TextView mMtext;
     private View tView;
 
@@ -38,6 +37,7 @@ public class MainActivity extends FragmentActivity {
 
 
     private Integer mCounter = 1;
+    private Integer trueCounter = 0;
     public Integer checkCounter;
     final static String TAG_1 = "FRAGMENT_1";
    // Button mButton1, mButton2;
@@ -67,6 +67,8 @@ public class MainActivity extends FragmentActivity {
                 .commit();
 
         mSettings = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
+        mCounter = mSettings.getInt(APP_PREFERENCES_COUNTER,0);
+        Log.d("PREF","COUNTER = "+APP_PREFERENCES_COUNTER);
         Log.d("PREF","Я создаюсь");
         Log.d("PREF",mCounter.toString());
       //  if (APP_PREFERENCES_COUNTER=="15"){
@@ -81,10 +83,6 @@ public class MainActivity extends FragmentActivity {
 
     @SuppressLint("SetTextI18n")
     public void Clack(View view, Integer needLevel) {
-        if (isFirst) {
-           // mButton2.setVisibility(View.VISIBLE);
-            isFirst = false;
-        }
         mMtext.setText("Вы на уровне " +needLevel.toString());
         Log.d("НУЖНЫЙ УРОВЕНЬ", String.valueOf(mSettings.getInt(APP_PREFERENCES_COUNTER, 0)));
         mCounter = needLevel;
@@ -101,12 +99,12 @@ public class MainActivity extends FragmentActivity {
                // mButton2.setVisibility(View.VISIBLE);
                // mButton1.setText("Украсть ключ");
                // mButton2.setText("Ждать");
-                /*
+
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f2)
-                    .commit(); */
-                setContentView(new Rocket(this));
+                    .commit();
+             //   setContentView(new Rocket(this));
 
                 break;
             case 3:
@@ -213,15 +211,19 @@ public class MainActivity extends FragmentActivity {
         return checkCounter.toString();
     }
 
+
     @Override
     protected void onPause() {
-        super.onPause();
         // Запоминаем данные
         SharedPreferences.Editor editor = mSettings.edit();
-        editor.putInt("counter", mCounter);
+        trueCounter = mSettings.getInt(APP_PREFERENCES_COUNTER,0);
+        if (trueCounter>mCounter) {
+        editor.putInt(APP_PREFERENCES_COUNTER, trueCounter);
+        Log.d("PREF","It's end!"+trueCounter);
+        }else {editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
+            Log.d("PREF","It's end!"+mCounter);
+        }
         editor.apply();
-        Log.d("PREF","я на паузе ");
+        super.onPause();
     }
-
-
 }
