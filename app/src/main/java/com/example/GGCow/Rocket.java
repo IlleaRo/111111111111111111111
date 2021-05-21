@@ -1,6 +1,8 @@
 package com.example.GGCow;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,13 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.GGCow.MainActivity.APP_PREFERENCES_COUNTER;
+
 public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
         private ThirdThread thread;
         private RocketSprite rocketSprite;
         public MeteorSprite meteor1, meteor2, meteor3, meteor4, meteor5, meteor6, meteor7,meteor8,meteor9,meteor10;
         public static int speed = 10;
         public int counter = 0;
+        SharedPreferences m1Settings;
         public boolean leftIsBlocked = false;
+        public boolean firsttime = true;
         public boolean rightIsBlocked = false;
         private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
         private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
@@ -58,8 +64,10 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         makeLevel();
-        thread.setRunning(true);
-        thread.start();
+        if(firsttime) {
+            thread.setRunning(true);
+            thread.start();
+        }
     }
 
 
@@ -83,17 +91,7 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        boolean retry = true;
-        while (retry) {
-            try {
-                thread.setRunning(false);
-                thread.join();
-
-            } catch(InterruptedException e){
-                e.printStackTrace();
-            }
-            retry = false;
-        }
+        resetLevel();
     }
 
     public void update(){
@@ -157,6 +155,15 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
                 meteors.get(i).Y = -value1;
                 meteors.get(i).X = 30 + value2;
                 counter++;
+            }
+            SharedPreferences.Editor editor = m1Settings.edit();
+            if(counter >= 20){
+
+                editor.putInt(APP_PREFERENCES_COUNTER, 19);
+                editor.apply();
+                Context context = getContext();
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
             }
         }
     }

@@ -27,9 +27,11 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
     public static int gapHeight = 500;
     public static int speed = 10;
     public int counter = 0;
+    private boolean firstTime = true;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
     private int mCs;
+    public Bitmap pole = getResizedBitmap(BitmapFactory.decodeResource (getResources(), R.drawable.pole), screenWidth, screenHeight);
     SharedPreferences m1Settings;
     public Cow(Context context) {
         super(context);
@@ -74,8 +76,10 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         makeLevel();
-        thread.setRunning(true);
-        thread.start();
+        if(firstTime) {
+            thread.setRunning(true);
+            thread.start();
+        }
     }
 
     private void makeLevel() {
@@ -91,27 +95,9 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        Log.d("PREF","COW is die"+counter);
-        SharedPreferences.Editor editor = m1Settings.edit();
-        if (counter==2) {
-            editor.putInt(APP_PREFERENCES_COUNTER, 15);
-        }
-        else editor.putInt(APP_PREFERENCES_COUNTER,14);
-        editor.apply();
-        Context context = getContext();
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
-        boolean retry = true;
-         while (retry) {
-             try {
-                thread.setRunning(false);
-                thread.join();
-             } catch(InterruptedException e){
-                e.printStackTrace();
-             }
-            retry = false;
-        }
+        resetLevel();
     }
+
 
     public void update() {
         logic();
@@ -127,7 +113,7 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
 
         super.draw(canvas);
         if(canvas!=null) {
-            canvas.drawRGB(0, 100, 205);
+            canvas.drawBitmap(pole, 0, 0, null);
             characterSprite.draw(canvas);
             fence1.draw(canvas);
             fence2.draw(canvas);
@@ -158,8 +144,10 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
                 pipes.get(i).Y = value2 - 250;
                 counter++;
                 Log.d("НУЖНЫЙ","Counter: ="+ counter);
-                if (counter >= 2){
-
+                SharedPreferences.Editor editor = m1Settings.edit();
+                if (counter >= 5) {
+                    editor.putInt(APP_PREFERENCES_COUNTER, 15);
+                    editor.apply();
                     Context context = getContext();
                     Intent intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
