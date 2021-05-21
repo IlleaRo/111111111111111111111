@@ -16,8 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:scaleType="center"
-            android:src="@drawable/arturito" />
+            android:src="@drawable/polish_dancing_cow_dancing" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,28 +36,24 @@
             android:text="First Fragment"
             android:textSize="24sp" />
     </FrameLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#101315"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal" >
         <Button
             android:id="@+id/f91button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="2dp"
             android:layout_weight="2"
+            android:layout_margin="2dp"
             android:text="Arturito, ¡ayúdame!" />
 
         <Button
             android:id="@+id/f92button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
             android:layout_margin="2dp"
             android:layout_weight="2"
             android:gravity="center"
