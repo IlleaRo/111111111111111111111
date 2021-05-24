@@ -56,7 +56,6 @@ public class ThirdThread extends Thread {
 
             timeMillis = (System.nanoTime() - startTime) / 1000000;
             waitTime = targetTime-timeMillis;
-
             try{
                 if (Rocket.leftIsBlocked){
                     counterLeft++;

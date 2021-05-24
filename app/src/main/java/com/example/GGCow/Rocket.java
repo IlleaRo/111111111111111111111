@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.GGCow.MainActivity.APP_PREFERENCES;
 import static com.example.GGCow.MainActivity.APP_PREFERENCES_COUNTER;
 
 public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
@@ -25,10 +27,11 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
         public MeteorSprite meteor1, meteor2, meteor3, meteor4, meteor5, meteor6, meteor7,meteor8,meteor9,meteor10;
         public static int speed = 10;
         public int counter = 0;
-        SharedPreferences m1Settings;
+        SharedPreferences m2Settings;
         public boolean leftIsBlocked = false;
         public boolean firsttime = true;
         public boolean rightIsBlocked = false;
+        private int mCs;
         private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
         private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
         public Bitmap space = getResizedBitmap(BitmapFactory.decodeResource (getResources(), R.drawable.space), screenWidth, screenHeight);
@@ -37,6 +40,8 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
     public Rocket(Context context) {
         super(context);
         getHolder().addCallback(this);
+        m2Settings = getContext().getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
+        mCs = m2Settings.getInt(APP_PREFERENCES_COUNTER,0);
         thread = new ThirdThread(getHolder(), this);
         setFocusable(true);
     }
@@ -68,6 +73,7 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
             thread.setRunning(true);
             thread.start();
         }
+        firsttime = false;
     }
 
 
@@ -103,6 +109,9 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
         meteor5.update();
         meteor6.update();
         meteor7.update();
+        meteor8.update();
+        meteor9.update();
+        meteor10.update();
     }
 
     @Override
@@ -148,22 +157,22 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
 
 
 
-            if (meteors.get(i).Y + 150 > screenHeight+200){
+            if (meteors.get(i).Y + 150 > screenHeight+200) {
                 Random r = new Random();
                 int value1 = r.nextInt(500);
                 int value2 = r.nextInt(screenWidth);
                 meteors.get(i).Y = -value1;
                 meteors.get(i).X = 30 + value2;
                 counter++;
-            }
-            SharedPreferences.Editor editor = m1Settings.edit();
-            if(counter >= 20){
-
-                editor.putInt(APP_PREFERENCES_COUNTER, 19);
-                editor.apply();
-                Context context = getContext();
-                Intent intent = new Intent(context, MainActivity.class);
-                context.startActivity(intent);
+                Log.d("Counter", "Score is " + counter);
+                SharedPreferences.Editor editor2 = m2Settings.edit();
+                if (counter == 20) {
+                    editor2.putInt(APP_PREFERENCES_COUNTER, 19);
+                    editor2.apply();
+                    Context context = getContext();
+                    Intent intent = new Intent(context, MainActivity.class);
+                    context.startActivity(intent);
+                }
             }
         }
     }
