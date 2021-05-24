@@ -146,6 +146,8 @@ public class Cow extends SurfaceView implements SurfaceHolder.Callback {
                 Log.d("НУЖНЫЙ","Counter: ="+ counter);
                 SharedPreferences.Editor editor = m1Settings.edit();
                 if (counter >= 5) {
+                    thread.setRunning(false);
+                    firstTime = true;
                     editor.putInt(APP_PREFERENCES_COUNTER, 15);
                     editor.apply();
                     Context context = getContext();

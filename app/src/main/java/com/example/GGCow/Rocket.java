@@ -167,6 +167,8 @@ public class Rocket extends SurfaceView implements SurfaceHolder.Callback {
                 Log.d("Counter", "Score is " + counter);
                 SharedPreferences.Editor editor2 = m2Settings.edit();
                 if (counter == 20) {
+                    thread.setRunning(false);
+                    firsttime = true;
                     editor2.putInt(APP_PREFERENCES_COUNTER, 19);
                     editor2.apply();
                     Context context = getContext();
