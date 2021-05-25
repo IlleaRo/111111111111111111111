@@ -23,7 +23,7 @@ public class f3 extends Fragment {
 
         TextView mText = view.findViewById(R.id.f3text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Захар сидит в своем доме и редко посещает коров, но ключ-то находится в ДОМЕ. Попробовать выманить Захара или пробраться к нему ночью?. \n"
+        mText.setText("Захар сидит в своем доме и редко посещает коров, но ключ находится в ДОМЕ. Попробовать выманить Захара или пробраться к нему ночью?. \n"
         );
         Button button1 = (Button) view.findViewById(R.id.f31button);
         button1.setOnClickListener(new View.OnClickListener()

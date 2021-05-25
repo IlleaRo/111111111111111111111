@@ -57,6 +57,6 @@
             android:layout_margin="2dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="Первый вариант на коровьем " />
+            android:text="Мууу-муу му му" />
     </LinearLayout>
 </LinearLayout>

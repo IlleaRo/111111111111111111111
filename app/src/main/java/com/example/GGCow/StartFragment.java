@@ -35,6 +35,19 @@ public class StartFragment extends Fragment {
                 }
             }
         });
+        Button NewButton = (Button) view.findViewById(R.id.newGameButton);
+        NewButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                FragmentActivity activity2 = getActivity();
+                if (activity2 != null && activity2 instanceof MainActivity){
+                    ((MainActivity) activity2).NewGame(v);
+
+                }
+            }
+        });
         return view;
     }
 }

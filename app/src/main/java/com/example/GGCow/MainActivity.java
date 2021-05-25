@@ -31,6 +31,8 @@ public class MainActivity extends FragmentActivity {
     private final f16 f16 = new f16();
     private final f17 f17 = new f17();
     private final f19 f19 = new f19();
+    private final fError1 fError1 = new fError1();
+    private final fError2 fError2 = new fError2();
 
     private final StartFragment fstart = new StartFragment();
 
@@ -72,6 +74,14 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void StartGame(View v){
+        Clack(v,mCounter);
+    }
+    public void NewGame(View v){
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putInt(APP_PREFERENCES_COUNTER, 1);
+        editor.apply();
+        mSettings = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
+        mCounter = mSettings.getInt(APP_PREFERENCES_COUNTER,0);
         Clack(v,mCounter);
     }
 
@@ -201,6 +211,18 @@ public class MainActivity extends FragmentActivity {
                         .replace(R.id.container, f19)
                         .commit();
                 break;
+            case 20:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, fError1)
+                        .commit();
+                break;
+            case 21:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, fError2)
+                        .commit();
+                break;    
             default:
                 mCounter=1;
         }
@@ -231,12 +253,12 @@ public class MainActivity extends FragmentActivity {
         // Запоминаем данные
         SharedPreferences.Editor editor = mSettings.edit();
         trueCounter = mSettings.getInt(APP_PREFERENCES_COUNTER,0);
-        if (trueCounter>mCounter) {
+        /*if (trueCounter>mCounter) {
         editor.putInt(APP_PREFERENCES_COUNTER, trueCounter);
         Log.d("PREF","It's end!"+trueCounter);
-        }else {editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
+        }else {*/editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
             Log.d("PREF","It's end!"+mCounter);
-        }
+        //}
         editor.apply();
         super.onPause();
     }

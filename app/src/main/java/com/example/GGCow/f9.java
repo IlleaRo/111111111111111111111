@@ -22,10 +22,10 @@ public class f9 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f9, container, false);
         TextView mText = view.findViewById(R.id.f9text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("9)\tТеодор вас не понял – вы остались одни…\n" +
-                "\n"+ "\n"+ "\n"+ "\n"+
-                "a.\tПридется использовать знания коровы-электрика Артурито. Артурито, будучи в Испании, дважды оказался в заложниках, но выжил, и теперь является крайне уважаемый в Криводановском обществе. (10)\n" +
-                "b.\tПерекусить провода самостоятельно (11) \n"
+        mText.setText("\tТеодор вас не понял – вы остались одни…\n" +
+                "\n"+
+                "a.\tПридется использовать знания коровы-электрика Артурито. Артурито, будучи в Испании, дважды оказался в заложниках, но выжил, и теперь является крайне уважаемый в Криводановском обществе. \n" +
+                "b.\tПерекусить провода самостоятельно \n"
         );
         Button button1 = (Button) view.findViewById(R.id.f91button);
         button1.setOnClickListener(new View.OnClickListener()
@@ -47,7 +47,7 @@ public class f9 extends Fragment {
             {
                 FragmentActivity activity = getActivity();
                 if (activity instanceof MainActivity){
-                    ((MainActivity) activity).Clack(v,11);
+                    ((MainActivity) activity).Clack(v,20);
                 }
             }
         });

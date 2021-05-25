@@ -48,7 +48,7 @@
             android:layout_gravity="center"
             android:layout_weight="2"
             android:layout_margin="2dp"
-            android:text="Перегрызть один из проводов" />
+            android:text="Перегрызть провод с надписью" />
 
         <Button
             android:id="@+id/f72button"

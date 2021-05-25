@@ -22,7 +22,9 @@ public class f7 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f7, container, false);
         TextView mText = view.findViewById(R.id.f7text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Известно, что Захар играет только в рейтинг… Что можно сделать, чтобы его выманить?\n"
+        mText.setText("Перед вами огромная куча проводов.\n" +
+                "Вы можете перегрызть провод с надписью, написанной подчерком Захара 'Кто тронет - умрёт'.\n" +
+                "Или каким-нибудь образом попробовать снести столб. Выбор за вами.\n"
         );
         Button button1 = (Button) view.findViewById(R.id.f71button);
         button1.setOnClickListener(new View.OnClickListener()
@@ -32,7 +34,7 @@ public class f7 extends Fragment {
             {
                 FragmentActivity activity = getActivity();
                 if (activity instanceof MainActivity){
-                    ((MainActivity) activity).Clack(v,11);
+                    ((MainActivity) activity).Clack(v,20);
                 }
             }
         });

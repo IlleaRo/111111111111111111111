@@ -23,7 +23,7 @@ public class f13 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f13, container, false);
         TextView mText = view.findViewById(R.id.f13text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Артурито не мог опозориться не мог опозориться и выполнил вашу просьбу. К сожалению, от него остался " +
+        mText.setText("Артурито не мог опозориться и выполнил вашу просьбу. К сожалению, от него остался " +
                 "только сочный бекон отменного качества, уже соленный.  \n"
         );
         Button button1 = (Button) view.findViewById(R.id.f131button);

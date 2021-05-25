@@ -20,7 +20,7 @@ public class f4 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f4, container, false);
         TextView mText = view.findViewById(R.id.f4text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Вы всю жизнь прожили в загоне, и, более того, в Новосибирске! Хорошо, что жизнь была не долгой, ведь Захар вас не кормил...");
+        mText.setText("Вы всю жизнь прожили в загоне, и более того, в Новосибирске! Хорошо, что жизнь была не долгой, ведь Захар вас не кормил...");
         Button button = (Button) view.findViewById(R.id.f4button);
         button.setOnClickListener(new View.OnClickListener()
         {
