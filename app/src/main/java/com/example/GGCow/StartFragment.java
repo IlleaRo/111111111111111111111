@@ -22,7 +22,6 @@ public class StartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_start, container, false);
         TextView textOnS = view.findViewById(R.id.textOnNewScreen);
-
         Button button = (Button) view.findViewById(R.id.contButton);
         button.setOnClickListener(new View.OnClickListener()
         {

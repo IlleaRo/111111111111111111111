@@ -16,14 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/polish_dancing_cow_dancing" />
+            android:src="@drawable/maxresdefault"
+            android:scaleType="centerCrop"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:alpha="0.3" />
+            android:alpha="0.7" />
         <TextView
+            android:fontFamily="@font/rostov"
             android:textColor="@color/white"
             android:id="@+id/f12text"
             android:layout_width="match_parent"
@@ -42,6 +44,7 @@
         android:layout_margin="1dp"
         android:orientation="horizontal" >
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f121button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,6 +53,7 @@
             android:text="-“Надоели эти ZXC-клоуны”" />
 
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f122button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

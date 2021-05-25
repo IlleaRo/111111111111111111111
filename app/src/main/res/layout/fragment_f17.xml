@@ -23,6 +23,7 @@
             android:background="@color/black"
             android:alpha="0.6"/>
         <TextView
+            android:fontFamily="@font/rostov"
             android:textColor="@color/white"
             android:id="@+id/f16text"
             android:layout_width="match_parent"
@@ -40,6 +41,7 @@
         android:layout_weight="10"
         android:layout_margin="1dp">
         <Button
+            android:fontFamily="@font/rostov"
             android:background="@color/green"
             android:id="@+id/f17button"
             android:layout_margin="1dp"

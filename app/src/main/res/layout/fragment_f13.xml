@@ -16,14 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/polish_dancing_cow_dancing" />
+            android:src="@drawable/zabor"
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:alpha="0.3" />
+            android:alpha="0.6" />
         <TextView
+            android:fontFamily="@font/rostov"
             android:textColor="@color/white"
             android:id="@+id/f13text"
             android:layout_width="match_parent"
@@ -42,6 +44,7 @@
         android:layout_margin="1dp"
         android:orientation="horizontal" >
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f131button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

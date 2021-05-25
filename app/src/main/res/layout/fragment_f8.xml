@@ -16,14 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/polish_dancing_cow_dancing" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/korovas" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:alpha="0.3" />
+            android:alpha="0.7" />
         <TextView
+            android:fontFamily="@font/rostov"
             android:textColor="@color/white"
             android:id="@+id/f8text"
             android:layout_width="match_parent"
@@ -43,6 +45,7 @@
         android:layout_margin="1dp"
         android:orientation="horizontal" >
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f81button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,6 +55,7 @@
             android:text="- “Теодор, а слабо снести этот столб?” " />
 
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f82button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

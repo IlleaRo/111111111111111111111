@@ -23,8 +23,8 @@ public class f13 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f13, container, false);
         TextView mText = view.findViewById(R.id.f13text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Артурито не мог опозориться и выполнил вашу просьбу. К сожалению, от него остался " +
-                "только сочный бекон отменного качества, уже соленный.  \n"
+        mText.setText("13)\tЗахар согласился с вами и пошел за электриком в соседнюю деревню. Вы смогли украсть ключ и открыли калитку. " +
+                "Сработала сигнализация и огромные ворота впереди начали закрываться. Сможете ли вы через них пройти?   \n"
         );
         Button button1 = (Button) view.findViewById(R.id.f131button);
         button1.setOnClickListener(new View.OnClickListener() {

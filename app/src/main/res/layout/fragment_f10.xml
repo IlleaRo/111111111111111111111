@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/polish_dancing_cow_dancing" />
+            android:src="@drawable/bekon"
+            android:scaleType="centerCrop"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +25,7 @@
             android:background="@color/black"
             android:alpha="0.3" />
         <TextView
+            android:fontFamily="@font/rostov"
             android:textColor="@color/white"
             android:id="@+id/f10text"
             android:layout_width="match_parent"
@@ -43,10 +45,10 @@
         android:layout_margin="1dp"
         android:orientation="horizontal" >
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f101button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
             android:layout_margin="5dp"
             android:text="Ну, и ладно... " />
     </LinearLayout>

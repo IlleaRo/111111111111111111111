@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.111111111111111111111">
-        <activity android:name="com.example.GGCow.MainActivity">
+        <activity android:name="com.example.GGCow.MainActivity"
+                android:screenOrientation="userPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

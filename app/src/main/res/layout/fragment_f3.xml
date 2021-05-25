@@ -13,10 +13,12 @@
         android:orientation="vertical">
 
         <ImageView
+            android:fontFamily="@font/rostov"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/polish_dancing_cow_dancing" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/domik" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,6 +45,7 @@
         android:layout_margin="1dp"
         android:orientation="horizontal" >
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f31button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,6 +55,7 @@
             android:text="Пробраться" />
 
         <Button
+            android:fontFamily="@font/rostov"
             android:id="@+id/f32button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
