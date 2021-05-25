@@ -11,6 +11,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:windowFullscreen"> true </item>
         <!-- Status bar color. -->
+        <item name="android:textStyle">arial</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
