@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -70,6 +71,9 @@ public class MainActivity extends FragmentActivity {
         if (mCounter==15){
             Clack(tView,15);
         }
+        if(mCounter==19){
+            Clack(tView,19);
+        }
         Log.d("PREF",mCounter.toString());
     }
 
@@ -95,6 +99,9 @@ public class MainActivity extends FragmentActivity {
         switch (mCounter){
             case 1:
                 mMtext.setText("Вы на уровне " +1);
+                SharedPreferences.Editor editor0 = mSettings.edit();
+                editor0.putInt(APP_PREFERENCES_COUNTER, 1);
+                editor0.apply();
                 getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, f1)
@@ -253,10 +260,16 @@ public class MainActivity extends FragmentActivity {
         // Запоминаем данные
         SharedPreferences.Editor editor = mSettings.edit();
         trueCounter = mSettings.getInt(APP_PREFERENCES_COUNTER,0);
-        /*if (trueCounter>mCounter) {
-        editor.putInt(APP_PREFERENCES_COUNTER, trueCounter);
-        Log.d("PREF","It's end!"+trueCounter);
-        }else {*/editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
+        if (trueCounter == 15) {
+            mCounter = 15;
+        }
+        if(trueCounter == 19) {
+            mCounter = 19;
+        }
+        //editor.putInt(APP_PREFERENCES_COUNTER, trueCounter);
+        //Log.d("PREF","It's end!"+trueCounter);
+        /*}else {*/
+        editor.putInt(APP_PREFERENCES_COUNTER, mCounter);
             Log.d("PREF","It's end!"+mCounter);
         //}
         editor.apply();
