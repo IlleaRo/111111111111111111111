@@ -21,7 +21,7 @@ public class f2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f2, container, false);
         TextView mText = view.findViewById(R.id.f2text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Для начала ей необходимо раздобыть ключ от загона. Она может попробовать украсть его у Захара-смотрителя коров. \n"
+        mText.setText("Для начала ей необходимо раздобыть ключ от загона. Она может попробовать украсть его у Захара-смотрителя. \n"
                 );
         Button button1 = (Button) view.findViewById(R.id.f21button);
         button1.setOnClickListener(new View.OnClickListener()

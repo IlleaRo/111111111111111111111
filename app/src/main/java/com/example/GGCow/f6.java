@@ -22,7 +22,8 @@ public class f6 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_f6, container, false);
         TextView mText = view.findViewById(R.id.f6text);
         mText.setMovementMethod(new ScrollingMovementMethod());
-        mText.setText("Известно, что Захар играет только в рейтинг… Что можно сделать, чтобы его выманить?\n"
+        mText.setText("Известно, что Захар играет только в рейтинг… Что можно сделать, чтобы его выманить?\n" +
+                "Возможно, стоит пробраться к нему ночью?"
         );
         Button button1 = (Button) view.findViewById(R.id.f61button);
         button1.setOnClickListener(new View.OnClickListener()

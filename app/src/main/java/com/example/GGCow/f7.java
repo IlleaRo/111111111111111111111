@@ -23,7 +23,7 @@ public class f7 extends Fragment {
         TextView mText = view.findViewById(R.id.f7text);
         mText.setMovementMethod(new ScrollingMovementMethod());
         mText.setText("Перед вами огромная куча проводов.\n" +
-                "Вы можете перегрызть провод с надписью, написанной подчерком Захара 'Кто тронет - умрёт'.\n" +
+                "Вы можете перегрызть провод с надписью «Кто тронет - умрёт», написанной подчерком Захара.\n" +
                 "Или каким-нибудь образом попробовать снести столб. Выбор за вами.\n"
         );
         Button button1 = (Button) view.findViewById(R.id.f71button);
